@@ -1,0 +1,20 @@
+.app-wrapper {
+  width: 1600px;
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-areas: 
+  "h h"
+  "n p";
+
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 5px;
+}
+
+.app-wrapper-content {
+  grid-area: p;
+  background: rgb(25, 215, 237);
+  background: linear-gradient(195deg, rgba(25, 215, 237, 1) 0%, rgba(74, 230, 178, 1) 41%, rgba(144, 29, 219, 1) 100%);
+}
