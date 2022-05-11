@@ -1,7 +1,6 @@
 .profile {
   grid-area: p;
   background: rgb(25, 215, 237);
-  background: linear-gradient(195deg, rgba(25, 215, 237, 1) 0%, rgba(74, 230, 178, 1) 41%, rgba(144, 29, 219, 1) 100%);
 }
 
 .profile img {

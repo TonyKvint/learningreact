@@ -1,10 +1,18 @@
 .nav {
   grid-area: n;
   background: rgb(25, 215, 237);
-  background: linear-gradient(195deg, rgba(25, 215, 237, 1) 0%, rgba(74, 230, 178, 1) 41%, rgba(144, 29, 219, 1) 100%);
+  padding: 5%;
 }
 
-/* .item a {
-  color: #fff;
+.item a {
+  color: rgb(255, 255, 255);
   text-decoration: none;
-} */
+}
+
+.item a.active {
+  color: rgb(144, 29, 219);
+}
+
+.item a:hover {
+  color: rgb(18, 124, 156);
+}
