@@ -1,0 +1,35 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+/* ---------------Left side--------------- */
+
+.dialogsItems {
+  padding: 10px;
+}
+
+.item {
+  padding-bottom: 5px;
+}
+
+.item a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.item a.active {
+  color: rgb(144, 29, 219);
+}
+
+.item a:hover {
+  color: rgb(18, 124, 156);
+}
+
+/* ---------------Right side--------------- */
+
+.messages {
+  padding: 10px;
+}
+
+.messages .message {}

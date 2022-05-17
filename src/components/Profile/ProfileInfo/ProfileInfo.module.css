@@ -1,0 +1,15 @@
+.ProfileInfo {
+  width: 25%;
+  margin: 5px;
+  padding: 10px;
+
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+}
+
+.ava {
+  width: 150px;
+  height: 150px;
+  border: 3px solid rgb(18, 124, 156);
+  border-radius: 50%;
+}
