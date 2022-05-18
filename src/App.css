@@ -1,6 +1,6 @@
 .app-wrapper {
   width: 1600px;
-  margin: 0 auto;
+  margin: 5px auto;
 
   display: grid;
 
@@ -16,4 +16,5 @@
 .app-wrapper-content {
   grid-area: p;
   background: rgb(25, 215, 237);
+  border-radius: 10px;
 }
