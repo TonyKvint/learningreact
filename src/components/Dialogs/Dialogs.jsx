@@ -18,40 +18,40 @@ const Message = (props) => {
   return <div className={classes.message}>{props.message}</div>;
 };
 
-/* Массивы данных, позже они будут вынесены отдельно, не пугайся */
+/* -------------------------------------------------------------- */
 
 let dialogsData = [
-  {id: 1, name: 'Anton'},
-  {id: 2, name: 'Veronica'},
-  {id: 3, name: 'Alexey'},
-  {id: 4, name: 'Brother'},
-  {id: 5, name: 'Mom'}
+  { id: 1, name: "Anton" },
+  { id: 2, name: "Veronica" },
+  { id: 3, name: "Alexey" },
+  { id: 4, name: "Brother" },
+  { id: 5, name: "Mom" },
+  { id: 6, name: "Max" },
+  { id: 7, name: "Seva" },
 ];
 
 let messagesData = [
-  {id: 1, message: "Hi!"},
-  {id: 2, message: "What's up?"},
-  {id: 3, message: "How's your react lessons?"}
+  { id: 1, message: "Hi!" },
+  { id: 2, message: "What's up?" },
+  { id: 3, message: "How's your react lessons?" },
 ];
+
+let dialogsElements = dialogsData.map((d) => (
+  <DialogsItem name={d.name} id={d.id} />
+));
+
+let messagesElements = messagesData.map((m) => (
+  <Message message={m.message} id={m.id} />
+));
 
 /* -------------------------------------------------------------- */
 
 const Dialogs = (props) => {
   return (
     <div className={classes.dialogs}>
-      <div className={classes.dialogsItems}>
-        <DialogsItem name={dialogsData[0].name} id={dialogsData[0].id} />
-        <DialogsItem name={dialogsData[1].name} id={dialogsData[1].id} />
-        <DialogsItem name={dialogsData[2].name} id={dialogsData[2].id} />
-        <DialogsItem name={dialogsData[3].name} id={dialogsData[3].id} />
-        <DialogsItem name={dialogsData[4].name} id={dialogsData[4].id} />
-      </div>
+      <div className={classes.dialogsItems}>{dialogsElements}</div>
 
-      <div className={classes.messages}>
-        <Message message={messagesData[0].message} id={messagesData[0].id} />
-        <Message message={messagesData[1].message} id={messagesData[1].id} />
-        <Message message={messagesData[2].message} id={messagesData[2].id} />
-      </div>
+      <div className={classes.messages}>{messagesElements}</div>
     </div>
   );
 };
