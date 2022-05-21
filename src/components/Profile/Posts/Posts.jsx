@@ -15,7 +15,7 @@ let postElements = postData.map((p) => (
 
 /* -------------------------------------------------------------- */
 
-const Posts = () => {
+const Posts = (props) => {
   return (
     <div>
       <div className={classes.messageInputBlock}>

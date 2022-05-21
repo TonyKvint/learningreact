@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import classes from "./Nav.module.css";
 
-const Nav = () => {
+const Nav = (props) => {
   const active = (navData) => (navData.isActive ? classes.active : "");
 
   return (
