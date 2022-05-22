@@ -16,8 +16,8 @@ const App = (props) => {
         <Nav />
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/Dialogs/*' element={<Dialogs />} />
-            <Route path='/Profile' element={<Profile />} />
+            <Route path='/Dialogs/*' element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData} />} />
+            <Route path='/Profile' element={<Profile postData={props.postData} />} />
             <Route path='/News' element={<News />} />
             <Route path='/Settings' element={<Settings />} />
             <Route path='/Music' element={<Music />} />
@@ -25,7 +25,7 @@ const App = (props) => {
         </div>
       </div>
     </BrowserRouter>
-    );
+  );
 }
 
 export default App;

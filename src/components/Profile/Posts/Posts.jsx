@@ -1,21 +1,11 @@
 import classes from "./Posts.module.css";
 import Post from "./Post/Post";
 
-/* -------------------------------------------------------------- */
-
-let postData = [
-  {id: 1, message: "Hi, how are you?", likesCount: 2},
-  {id: 2, message: "It's my first post", likesCount: 19},
-  {id: 3, message: "Hey, everyone!", likesCount: 5}
-];
-
-let postElements = postData.map((p) => (
-  <Post message={p.message} id={p.id} likes={p.likesCount} />
-));
-
-/* -------------------------------------------------------------- */
-
 const Posts = (props) => {
+  let postElements = props.postData.map((p) => (
+    <Post message={p.message} id={p.id} likes={p.likesCount} />
+  ));
+
   return (
     <div>
       <div className={classes.messageInputBlock}>
