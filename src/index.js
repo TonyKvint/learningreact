@@ -16,8 +16,6 @@ let dialogsData = [
   { id: 3, name: "Alexey" },
   { id: 4, name: "Brother" },
   { id: 5, name: "Mom" },
-  { id: 6, name: "Max" },
-  { id: 7, name: "Seva" },
 ];
 
 let messagesData = [
