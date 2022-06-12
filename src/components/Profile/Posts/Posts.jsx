@@ -1,3 +1,4 @@
+import React from 'react';
 import classes from "./Posts.module.css";
 import Post from "./Post/Post";
 
@@ -6,14 +7,26 @@ const Posts = (props) => {
     <Post message={p.message} id={p.id} likes={p.likesCount} />
   ));
 
+  let newPostElement = React.createRef();
+
+  let addNewPost = () => {
+    props.dispatch({type: 'ADD-POST'});
+  }
+
+  let onPostChange = () => {
+    let newPostText = newPostElement.current.value;
+    let action = {type: 'UPDATE-NEW-POST-TEXT', newPostText};
+    props.dispatch(action);
+  }
+
   return (
     <div>
       <div className={classes.messageInputBlock}>
         <div>
-          <textarea placeholder="Write a message..."></textarea>
+          <textarea placeholder="Write a message..." onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
         </div>
         <div>
-          <button>Send</button>
+          <button onClick={addNewPost}>Add post</button>
         </div>
       </div>
       {postElements}
