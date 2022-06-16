@@ -1,6 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let store = {
@@ -10,7 +10,8 @@ let store = {
             postData: [
                 { id: 1, message: "It's my first post!", likesCount: 18 },
                 { id: 2, message: "Hey, everyone!", likesCount: 5 },
-            ]
+            ],
+            newPostText: ''
         },
 
         dialogsPage: {
@@ -26,7 +27,7 @@ let store = {
                 { id: 2, message: "What's up?" },
                 { id: 3, message: "How's your react lessons?" }
             ],
-            newMessageText: ""
+            newMessageBody: ''
         }
 
     },
@@ -43,35 +44,28 @@ let store = {
 
     dispatch(action) {
         if (action.type === ADD_POST) {
-            let newPost = {
-                id: 3,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            };
+            let newPost = this._state.profilePage.newPostText;
 
-            this._state.profilePage.postData.push(newPost);
             this._state.profilePage.newPostText = '';
+            this._state.profilePage.postData.push({id: 3, message: newPost, likesCount: 0});
             this._callSubscriber(this._state);
         } 
         
         else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newPostText;
+            this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
         } 
         
-        else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.dialogsPage.newMessageText = action.messageBody;
+        else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.dialogsPage.newMessageBody = action.body;
             this._callSubscriber(this._state);
         }
 
         else if (action.type === SEND_MESSAGE) {
-            let newMessage = {
-                id: 4,
-                message: this._state.dialogsPage.newMessageText
-            };
+            let body = this._state.dialogsPage.newMessageBody;
 
-            this._state.dialogsPage.messagesData.push(newMessage);
-            this._state.dialogsPage.newMessageText = '';
+            this._state.dialogsPage.newMessageBody = '';
+            this._state.dialogsPage.messagesData.push({id: 4, message: body})
             this._callSubscriber(this._state);
         }
     }
@@ -79,21 +73,12 @@ let store = {
 
 export const addPostActionCreator = () => ({type: ADD_POST})
 
-export const updateNewPostTextActionCreator = (newPostText) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        text: newPostText
-    }
-}
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
-export const updateNewMessageTextActionCreator = () => ({type: UPDATE_NEW_MESSAGE_TEXT})
+export const updateNewMessageBodyActionCreator = (body) => ({type: UPDATE_NEW_MESSAGE_BODY, body: body})
 
-export const sendMessageActionCreator = (newMessage) => {
-    return {
-        type: SEND_MESSAGE,
-        message: newMessage
-    }
-}
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE})
+
 
 export default store;
 
