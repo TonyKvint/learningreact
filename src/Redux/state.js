@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+
 let store = {
     _state: {
 
@@ -9,20 +14,19 @@ let store = {
         },
 
         dialogsPage: {
-
             dialogsData: [
                 { id: 1, name: "Veronica" },
                 { id: 2, name: "Anton" },
                 { id: 3, name: "Alexey" },
                 { id: 4, name: "Brother" },
-                { id: 5, name: "Mom" },
+                { id: 5, name: "Mom" }
             ],
-
             messagesData: [
                 { id: 1, message: "Hi!" },
                 { id: 2, message: "What's up?" },
-                { id: 3, message: "How's your react lessons?" },
-            ]
+                { id: 3, message: "How's your react lessons?" }
+            ],
+            newMessageText: ""
         }
 
     },
@@ -38,19 +42,56 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 3,
                 message: this._state.profilePage.newPostText,
                 likesCount: 0
             };
+
             this._state.profilePage.postData.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } 
+        
+        else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newPostText;
             this._callSubscriber(this._state);
+        } 
+        
+        else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._state.dialogsPage.newMessageText = action.messageBody;
+            this._callSubscriber(this._state);
         }
+
+        else if (action.type === SEND_MESSAGE) {
+            let newMessage = {
+                id: 4,
+                message: this._state.dialogsPage.newMessageText
+            };
+
+            this._state.dialogsPage.messagesData.push(newMessage);
+            this._state.dialogsPage.newMessageText = '';
+            this._callSubscriber(this._state);
+        }
+    }
+}
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+
+export const updateNewPostTextActionCreator = (newPostText) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT,
+        text: newPostText
+    }
+}
+
+export const updateNewMessageTextActionCreator = () => ({type: UPDATE_NEW_MESSAGE_TEXT})
+
+export const sendMessageActionCreator = (newMessage) => {
+    return {
+        type: SEND_MESSAGE,
+        message: newMessage
     }
 }
 

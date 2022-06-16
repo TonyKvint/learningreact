@@ -1,3 +1,4 @@
+import React from 'react';
 import classes from "./ProfileInfo.module.css";
 import ava from "../../../img/ava.svg";
 
