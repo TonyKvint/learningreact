@@ -3,7 +3,7 @@ import classes from "./Dialogs.module.css";
 import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
 
-//в пропсы приходит dialogsPage, dispatch, messageChange и sendMessage
+//в пропсы приходит dialogsPage, dispatch, updateMessage и sendMessage
 
 const Dialogs = (props) => {
 
@@ -25,9 +25,9 @@ const Dialogs = (props) => {
     props.sendMessage();
   };
 
-  const messageChange = () => {
+  const updateMessage = () => {
     let body = newMessageElement.current.value;
-    props.messageChange(body);
+    props.updateMessage(body);
   }
 
   return (
@@ -38,7 +38,7 @@ const Dialogs = (props) => {
         <div>{messagesElements}</div>
         <div>
           <div>
-            <textarea placeholder="Enter your message" onChange={messageChange} ref={newMessageElement} value={messageBody}></textarea>
+            <textarea placeholder="Enter your message" onChange={updateMessage} ref={newMessageElement} value={messageBody}></textarea>
           </div>
           <div>
             <button onClick={sendMessage}>Send</button>

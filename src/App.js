@@ -9,9 +9,9 @@ import Settings from './components/Settings/Settings';
 import { Route, Routes } from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 
-//в пропсы идёт state
+//в пропсы приходит state
 
-const App = (props) => {
+const App = () => {
   return (
     <div className='app-wrapper'>
       <Header />
@@ -19,9 +19,9 @@ const App = (props) => {
       <div className='app-wrapper-content'>
         <Routes>
 
-          <Route path='/Profile' element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />} />
+          <Route path='/Profile' element={<Profile />} />
 
-          <Route path='/Dialogs/*' element={<DialogsContainer dialogsPage={props.state.dialogsPage} dispatch={props.dispatch}/>} />
+          <Route path='/Dialogs/*' element={<DialogsContainer />} />
 
           <Route path='/News' element={<News />} />
           <Route path='/Music' element={<Music />} />
