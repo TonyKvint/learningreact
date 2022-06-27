@@ -11,7 +11,7 @@ let initialState = {
         {id: 4, isFollowed: true, userName: "Alexey", status: "", location: {country: "Russia", city: "Ivanovo"} },
         {id: 5, isFollowed: true, userName: "Sergey", status: "", location: {country: "Russia", city: "Krasnoyarsk"} },
         {id: 6, isFollowed: true, userName: "Ekaterina", status: "", location: {country: "Russia", city: "Norilsk"} },
-        {id: 7, isFollowed: false, userName: "Daria", status: "", location: {country: "Russia", city: "Moscow"} },
+        {id: 7, isFollowed: false, userName: "Darya", status: "", location: {country: "Russia", city: "Moscow"} },
         {id: 8, isFollowed: false, userName: "Maxim", status: "", location: {country: "Russia", city: "Moscow"} },
         {id: 9, isFollowed: false, userName: "Vsevolod", status: "", location: {country: "Russia", city: "Saint-Petersburg"} },
     ]
