@@ -1,0 +1,21 @@
+{
+    "User": {
+        "name": { "regexp": "[A-Z][a-z]{5,10}" },
+        "isOnline": { "boolean": {} },
+        "isFollowed": { "boolean": {} },
+        "status": {
+            "loremWords": { "minLength": 2, "maxLength": 5 }
+        },
+        "city": {
+            "string": [
+                "Moskow",
+                "Saint-Petersburg",
+                "New-York",
+                "Berlin",
+                "London",
+                "Reykjavik"
+            ]
+        },
+        "avatar": { "regexp": "https://i\\.pravatar\\.cc/150\\?u=[0-9]{5}" }
+    }
+}
